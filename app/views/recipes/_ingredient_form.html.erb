@@ -1,0 +1,18 @@
+<div class="nested-form-wrapper card mb-3" data-new-record="<%= form.object.new_record? %>">
+
+  <div class="card-body d-flex flex-column">
+    <div class="mb-3">
+      <%= form.label :food, class: 'form-label' %>
+      <%= form.select :food_id, @foods_map, {}, class: 'form-select' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :quantity, class: 'form-label' %>
+      <%= form.number_field :quantity, class: 'form-control' %>
+    </div>
+
+    <button type="button" data-action="ingredients#remove" class="btn btn-danger align-self-end">Remove food</button>
+
+    <%= form.hidden_field :_destroy %>
+  </div>
+</div>
