@@ -1,3 +1,4 @@
+<div class="container mt-5">
 <h1>Editing food</h1>
 
 <%= render "form", food: @food %>
@@ -5,6 +6,7 @@
 <br>
 
 <div>
-  <%= link_to "Show this food", @food %> |
-  <%= link_to "Back to foods", foods_path %>
+  <%= link_to "Show this food", @food, class: "btn btn-warning m-3"%> |
+  <%= link_to "Back to foods", foods_path, class: "btn btn-primary m-3" %>
+</div>
 </div>

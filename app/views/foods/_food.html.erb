@@ -1,27 +1,21 @@
-<div id="<%= dom_id food %>">
-  <p>
-    <strong>Name:</strong>
-    <%= food.name %>
-  </p>
-
-  <p>
-    <strong>Measurement unit:</strong>
-    <%= food.measurement_unit %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= food.price %>
-  </p>
-
-  <p>
-    <strong>Quantity:</strong>
-    <%= food.quantity %>
-  </p>
-
-  <p>
-    <strong>Owner:</strong>
-    <%= food.owner_id %>
-  </p>
-
+<div id="<%= dom_id(food) %>" class="card m-3">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th class="text-primary display-6" colspan="6">Food</th>
+        <th class="text-primary " colspan="6">Measurement unit</th>
+        <th class="text-primary " colspan="6">Price</th>
+        <th class="text-primary " colspan="6">Quantity</th>
+        <th class="text-primary " colspan="6">Action</th>
+      </tr>
+      <tr>
+        <td colspan="6"><%= food.name %></td>
+        <td colspan="6"><%= food.measurement_unit %></td>
+        <td colspan="6">$ <%= food.price %></td>
+        <td colspan="6"><%= food.quantity %></td>
+        <td colspan="6"><%= link_to "Remove", food_path(food.id), data: { turbo_method: :delete }, class: "btn btn-danger" %></td>
+      </tr>
+      
+    </tbody>
+  </table>
 </div>
