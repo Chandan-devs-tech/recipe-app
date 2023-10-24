@@ -1,11 +1,29 @@
 <p style="color: green"><%= notice %></p>
 
-<h1 class="mx-3">Foods</h1>
-
-<%= button_to "Add food", new_food_path, class: "btn btn-success m-3"  %>
+<h1 class="mx-3 ">Foods</h1>
+<div class="d-flex justify-content-end">
+  <%= link_to "Add Food", new_food_path, class: "btn btn-success mx-5 "  %>
+</div>
 
 <div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-  <% end %>
+  <table class="table table-bordered m-3">
+    <tbody >
+      <tr>
+        <th class="text-primary display-6" colspan="6">Food</th>
+        <th class="text-primary " colspan="6">Measurement unit</th>
+        <th class="text-primary " colspan="6">Price</th>
+        <th class="text-primary " colspan="6">Quantity</th>
+        <th class="text-primary " colspan="6">Action</th>
+      </tr>
+      <% @foods.each do |food| %>
+        <tr>
+          <td colspan="6"><%= food.name %></td>
+          <td colspan="6"><%= food.measurement_unit %></td>
+          <td colspan="6">$ <%= food.price %></td>
+          <td colspan="6"><%= food.quantity %></td>
+          <td colspan="6"><%= link_to "Remove", food_path(food.id), data: { turbo_method: :delete }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
