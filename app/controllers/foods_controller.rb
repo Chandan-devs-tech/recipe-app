@@ -12,6 +12,8 @@ class FoodsController < ApplicationController
   # GET /foods/new
   def new
     @food = Food.new
+
+    @foods_map = Food.all.collect { |food| [food.name, food.id] }
   end
 
   # GET /foods/1/edit
@@ -20,6 +22,7 @@ class FoodsController < ApplicationController
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
+    @food.owner = current_user
 
     respond_to do |format|
       if @food.save
@@ -47,6 +50,7 @@ class FoodsController < ApplicationController
 
   # DELETE /foods/1 or /foods/1.json
   def destroy
+    @food = Food.find(params[:id])
     @food.destroy
 
     respond_to do |format|

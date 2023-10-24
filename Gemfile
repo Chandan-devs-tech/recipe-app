@@ -27,14 +27,7 @@ gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
-# Community-driven Ruby Style Guide.[https://rubocop.org/]
 gem 'rubocop', '>= 1.0', '< 2.0'
-
-# Authentication [https://github.com/heartcombo/devise#getting-started]
-gem 'devise'
-
-# Authorization [https://github.com/CanCanCommunity/cancancan]
-gem 'cancancan'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

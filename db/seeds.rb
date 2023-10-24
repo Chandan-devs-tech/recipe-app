@@ -6,11 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-@john = User.create!(name: 'John',
-                     email: "john.doe@mail.com",
-                     password: "admin1234",
-                     password_confirmation: "admin1234",
-                     confirmed_at: Time.now)
+@john = User.create(name: 'John')
 Recipe.create(author: @john,
               name: 'Perfect Chicken',
               description: 'Chicken stock, wine, onions, garlic, mushroom, cream, butter, herbs, lemon, and capers
@@ -26,3 +22,4 @@ I let the casserole sit overnight before baking, as the flavors improve and the 
 so the consistency is just right.',
               preparation_time: 30,
               cooking_time: 65)
+

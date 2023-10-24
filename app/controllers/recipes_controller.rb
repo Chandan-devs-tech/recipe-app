@@ -1,15 +1,9 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
-  before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: [:all]
 
   # GET /recipes or /recipes.json
   def index
     @recipes = current_user.recipes.all
-  end
-
-  def all
-    @recipes = Recipe.where(public: true)
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -23,9 +17,7 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1/edit
-  def edit
-    @foods_map = Food.all.collect { |food| [food.name, food.id] }
-  end
+  def edit; end
 
   # POST /recipes or /recipes.json
   def create
