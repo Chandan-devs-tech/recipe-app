@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Recipes</h1>
+
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <%= render recipe %>
+    <% if recipe.user_id == current_user.id %>
+      <%= button_to "Remove", recipe, method: :delete %>
+    <% end %>
+    <%# <p> %>
+      <%#= link_to "Show this recipe", recipe %>
+    <%# </p> %>
+  <% end %>
+</div>
+
+<%= link_to "New recipe", new_recipe_path %>
