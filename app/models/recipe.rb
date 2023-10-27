@@ -5,4 +5,5 @@ class Recipe < ApplicationRecord
   validates :description, presence: true
 
   belongs_to :user, foreign_key: 'user_id', class_name: 'User'
+  has_many :recipe_foods, foreign_key: 'recipe_id'
 end
