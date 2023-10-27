@@ -1,0 +1,23 @@
+<section>
+    <h1>Public Recipes</h1>
+    <div>
+        <% @public_recipes.each do |public_recipe| %>
+            <div>
+                <% if public_recipe.public == true || public_recipe.user_id == current_user.id%>
+                    <p>
+                        <%= link_to public_recipe.name, public_recipe %>
+                    </p>
+                <% else %>
+                    <p>
+                        <%= public_recipe.name %>
+                    </p>
+                <% end %>
+                <p>By: <%= public_recipe.user.name %></p>
+            </div>
+            <div>
+                <p>Total food items: </p>
+                <p>Total price: </p>
+            </div>
+        <% end %>
+    </div>
+</section>
