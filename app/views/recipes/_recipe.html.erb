@@ -1,29 +1,54 @@
 <div id="<%= dom_id recipe %>">
   <p>
     <%# <strong>Name:</strong> %>
-     <%= link_to recipe.name, recipe %>
-    <%#= recipe.name %>
+    <%= recipe.name %>
   </p>
-
-  <%# <p> %>
-    <%# <strong>Preparation time:</strong> %>
-    <%#= recipe.preparation_time %>
-  <%# </p> %>
-
-  <%# <p> %>
-    <%# <strong>Cook time:</strong> %>
-    <%#= recipe.cook_time %>
-  <%# </p> %>
 
   <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
+    <%# <strong>Preparation time:</strong> %>
+    <%= recipe.preparation_time %>
   </p>
 
-  <%# <p> %>
+  <p>
+    <%# <strong>Cook time:</strong> %>
+    <%= recipe.cook_time %>
+  </p>
+
+  <p>
+    <strong>Steps go here...</strong>
+    <%= recipe.description %>
+  </p>
+  <% if recipe.user_id == current_user.id %>
+    <%= link_to "Generate shopping list", new_food_path %>
+  <% end %>
+  <%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe) %>
+  <p>
+    <%= button_to(recipe.public ? "Make Private" : "Make Public", toggle_public_recipe_path(recipe), method: :put, remote: true) %>
     <%# <strong>Public:</strong> %>
     <%#= recipe.public %>
-  <%# </p> %>
+  </p>
+
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+    <% @recipe_foods.each do |recipe_food| %>
+      <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %></td>
+        <td><%= recipe_food.food.price * recipe_food.quantity %></td>
+        <td>
+          <% if can? :destroy, recipe %>
+            <%= link_to "Modify", edit_recipe_recipe_food_path(recipe, recipe_food) %>
+            <%= button_to "Remove", recipe_recipe_food_path(recipe, recipe_food), method: :delete %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
   <%# <p> %>
     <%# <strong>User:</strong> %>
