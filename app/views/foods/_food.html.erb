@@ -1,0 +1,21 @@
+<tr id="<%= dom_id food %>">
+  <td>
+    <%= food.name %>
+  </td>
+
+  <td>
+    <%= food.measurement_unit %>
+  </td>
+
+  <td>
+    <%= food.price %>
+  </td>
+  
+  <td>
+    <%= food.quantity %>
+  </td>
+
+  <td>
+    <%= button_to "Delete", food, method: :delete %>
+  </td>
+</tr>

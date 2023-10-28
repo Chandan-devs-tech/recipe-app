@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="add-recipe-btn">
+  <%= link_to "Add recipe", new_recipe_path, class:"add-recipe-link" %>
+</div>
+
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <div class="recipe">
+      <div class="recipe-name-container">
+        <% if recipe.public == true || recipe.user_id == current_user.id%>
+          <p>
+            <%= link_to recipe.name, recipe %>
+          </p>
+        <% else %>
+          <p>
+            <%= recipe.name %>
+          </p>
+        <% end %>
+        <% if recipe.user_id == current_user.id %>
+            <%= button_to "Remove", recipe, method: :delete %>
+        <% end %>
+      </div>
+      <p>
+        <%= recipe.description %>
+      </p>
+    </div>
+  <% end %>
+</div>

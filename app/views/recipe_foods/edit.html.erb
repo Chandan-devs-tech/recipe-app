@@ -1,0 +1,13 @@
+<h1>Editing recipe food</h1>
+
+<div>
+  <%= form_with(model: [@recipe, @recipe_food]) do |form| %>
+    <div>
+      <%= form.label :quantity, style: "display: block" %>
+      <%= form.number_field :quantity %>
+    </div>
+    <div>
+      <%= form.submit "Modify ingredent" %> 
+    </div>
+  <% end %>
+</div>

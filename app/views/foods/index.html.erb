@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="add-food-btn">
+  <%= link_to "Add Food", new_food_path, class:"add-food-link" %>
+</div>
+
+<div id="foods">
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Measurement unit</th>
+      <th>Unit price</th>
+      <th>Quantity</th>
+      <th>Actions</th>
+    </tr>
+    <% @foods.each do |food| %>
+      <%= render food %>
+    <% end %>
+  </table>
+</div>
