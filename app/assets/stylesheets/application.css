@@ -33,3 +33,93 @@
   color: black;
   font-weight: 800;
 }
+
+#foods {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#foods table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border: 1px solid black;
+}
+
+#foods table tbody {
+  width: 100%;
+}
+
+.shopping-table tr td,
+.shopping-table tr th {
+  border: 1px solid black;
+  width: 33%;
+}
+
+#foods table tr td,
+#foods table tr th {
+  width: 20%;
+  text-align: center;
+}
+
+#recipes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.recipe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.recipe-name-container {
+  width: 40%;
+}
+
+.recipe p {
+  text-align: left;
+  width: 40%;
+}
+
+.public-page,
+.shopping-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.public-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.public-item {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  align-items: center;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.shopping-table {
+  width: 50%;
+  border: 1px solid black;
+}
