@@ -19,7 +19,7 @@
     <%= recipe.description %>
   </p>
   <% if recipe.user_id == current_user.id %>
-    <%= link_to "Generate shopping list", new_food_path %>
+    <%= link_to "Generate shopping list", shopping_list_index_path %>
   <% end %>
   <%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe) %>
   <p>
