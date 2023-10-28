@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     member do
       put 'toggle_public'
@@ -8,6 +9,5 @@ Rails.application.routes.draw do
   resources :foods, only: [:index, :show, :new, :create, :destroy]
   resources :public_recipes, only: [:index]
   resources :shopping_list, only: [:index]
-  devise_for :users
   root to: 'foods#index'
 end

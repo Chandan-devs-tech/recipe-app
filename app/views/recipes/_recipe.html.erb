@@ -22,11 +22,13 @@
     <%= link_to "Generate shopping list", shopping_list_index_path %>
   <% end %>
   <%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe) %>
-  <p>
-    <%= button_to(recipe.public ? "Make Private" : "Make Public", toggle_public_recipe_path(recipe), method: :put, remote: true) %>
-    <%# <strong>Public:</strong> %>
-    <%#= recipe.public %>
-  </p>
+  <% if can? :update, recipe %>
+    <p>
+      <%= button_to(recipe.public ? "Make Private" : "Make Public", toggle_public_recipe_path(recipe), method: :put, remote: true) %>
+      <%# <strong>Public:</strong> %>
+      <%#= recipe.public %>
+    </p>
+  <% end %>
 
   <table>
     <tr>
