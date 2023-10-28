@@ -15,8 +15,12 @@
                 <p>By: <%= public_recipe.user.name %></p>
             </div>
             <div>
-                <p>Total food items: </p>
-                <p>Total price: </p>
+                <p>Total food items: <%= public_recipe.recipe_foods.count %> </p>
+                <% @total_price = 0 %>
+                <% public_recipe.recipe_foods.each do |recipe_food| %>
+                   <% @total_price += recipe_food.food.price * recipe_food.quantity %>
+                <% end %>
+                <p>Total price: <%= @total_price %></p>
             </div>
         <% end %>
     </div>
