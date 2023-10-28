@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :foods, only: [:index, :show, :new, :create, :destroy]
   resources :public_recipes, only: [:index]
+  resources :shopping_list, only: [:index]
   devise_for :users
   root to: 'foods#index'
 end

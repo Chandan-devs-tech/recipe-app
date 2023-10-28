@@ -51,6 +51,7 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
+    @recipe.recipe_foods.destroy_all
     @recipe.destroy
 
     respond_to do |format|
