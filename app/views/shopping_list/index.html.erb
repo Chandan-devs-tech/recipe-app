@@ -1,8 +1,8 @@
 <section class="shopping-page">
     <h1>Shopping List</h1>
     <div class="shopping-price-detail">
-        <p>Amount of food items to buy: <%= @displayed_names.length %></p>
-        <p>Total value of food needed: <%= @total_price %></p>
+        <p>Amount of food items to buy: <%= @total_items %></p>
+        <p>Total value of food needed: $<%= @total_cost %></p>
     </div>
     <table class="shopping-table">
         <tr>
@@ -10,13 +10,14 @@
             <th>Quantity</th>
             <th>Price</th>
         </tr>
-        <% @displayed_names.each do |food_name| %>
-            <% recipe_food = @recipe_foods.find { |rf| rf.food.name == food_name } %>
+        <tbody>
+            <% @shopping_list.each do |item| %>
             <tr>
-                <td><%= food_name %></td>
-                <td><%= recipe_food.quantity %></td>
-                <td><%= recipe_food.quantity * recipe_food.food.price %></td>
+                <td><%= item[:name] %></td>
+                <td><%= item[:quantity] %></td>
+                <td>$<%= item[:price] %></td>
             </tr>
-        <% end %>
+            <% end %>
+        </tbody>
     </table>
 </section>

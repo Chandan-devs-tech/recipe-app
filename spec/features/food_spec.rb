@@ -15,7 +15,7 @@ RSpec.feature 'Foods', type: :feature do
       fill_in 'Password confirmation', with: @user.password
       click_button 'Sign up'
       expect(page).to have_content('Foods')
-      click_link 'New food'
+      click_link 'Add Food'
       fill_in 'food[name]', with: @food.name
       fill_in 'food[measurement_unit]', with: @food.measurement_unit
       fill_in 'food[price]', with: @food.price

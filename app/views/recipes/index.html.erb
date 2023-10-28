@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Recipes</h1>
+<div class="add-recipe-btn">
+  <%= link_to "Add recipe", new_recipe_path, class:"add-recipe-link" %>
+</div>
 
 <div id="recipes">
   <% @recipes.each do |recipe| %>
-    <%#= render recipe %>
     <div class="recipe">
       <div class="recipe-name-container">
         <% if recipe.public == true || recipe.user_id == current_user.id%>
@@ -26,5 +27,3 @@
     </div>
   <% end %>
 </div>
-
-<%= link_to "New recipe", new_recipe_path %>

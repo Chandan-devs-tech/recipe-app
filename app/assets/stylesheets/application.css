@@ -59,10 +59,18 @@
   width: 33%;
 }
 
+.ingredients-table tr td,
+.ingredients-table tr th {
+  border: 1px solid black;
+  width: 25%;
+  text-align: center;
+}
+
 #foods table tr td,
 #foods table tr th {
   width: 20%;
   text-align: center;
+  border: 1px solid black;
 }
 
 #recipes {
@@ -122,4 +130,74 @@
 .shopping-table {
   width: 50%;
   border: 1px solid black;
+}
+
+.add-food-btn,
+.add-recipe-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 50px 150px;
+}
+
+.add-food-link,
+.add-recipe-link {
+  border: 2px solid black;
+  padding: 8px 15px;
+  color: black;
+  font-weight: 900;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.recipe-show-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.recipe-show-title {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.recipe-show-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+  gap: 30px;
+}
+
+.recipe-show-btn {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-show-btn a {
+  width: 50%;
+}
+
+.public-private-btn {
+  display: flex;
+  justify-content: space-between;
+
+  /* width: 75%; */
+}
+
+.ingredients-table {
+  width: 60%;
+  border: 1px solid black;
+}
+
+.ingredient-btns {
+  display: flex;
+  justify-content: space-between;
 }

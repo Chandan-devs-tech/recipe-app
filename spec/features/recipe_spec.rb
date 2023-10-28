@@ -16,7 +16,7 @@ RSpec.feature 'Recipes', type: :feature do
       click_button 'Sign up'
       expect(page).to have_current_path(recipes_path)
       expect(page).to have_content('Recipes')
-      click_link 'New recipe'
+      click_link 'Add recipe'
       expect(page).to have_current_path(new_recipe_path)
       fill_in 'recipe[name]', with: @recipe.name
       fill_in 'recipe[preparation_time]', with: @recipe.preparation_time

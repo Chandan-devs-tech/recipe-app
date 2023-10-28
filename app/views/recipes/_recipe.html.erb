@@ -1,36 +1,42 @@
-<div id="<%= dom_id recipe %>">
-  <p>
-    <%# <strong>Name:</strong> %>
+<div class="recipe-show-page">
+  <p class="recipe-show-title">
     <%= recipe.name %>
   </p>
 
-  <p>
-    <%# <strong>Preparation time:</strong> %>
-    <%= recipe.preparation_time %>
-  </p>
+  <div class="recipe-show-list">
+    <div class="public-private-btn">
+      <p class="recipe-show-item">
+        <strong>Preparation time:</strong>
+        <%= recipe.preparation_time %>
+      </p>
+      <% if can? :update, recipe %>
+        <p>
+          <%= button_to(recipe.public ? "Make Private" : "Make Public", toggle_public_recipe_path(recipe), method: :put, remote: true) %>
+        </p>
+      <% end %>
+    </div>
 
-  <p>
-    <%# <strong>Cook time:</strong> %>
-    <%= recipe.cook_time %>
-  </p>
-
-  <p>
-    <strong>Steps go here...</strong>
-    <%= recipe.description %>
-  </p>
-  <% if recipe.user_id == current_user.id %>
-    <%= link_to "Generate shopping list", shopping_list_index_path %>
-  <% end %>
-  <%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe) %>
-  <% if can? :update, recipe %>
-    <p>
-      <%= button_to(recipe.public ? "Make Private" : "Make Public", toggle_public_recipe_path(recipe), method: :put, remote: true) %>
-      <%# <strong>Public:</strong> %>
-      <%#= recipe.public %>
+    <p class="recipe-show-item">
+      <strong>Cook time:</strong>
+      <%= recipe.cook_time %>
     </p>
-  <% end %>
 
-  <table>
+    <p class="recipe-show-item">
+      <strong>Steps go here...</strong>
+      <%= recipe.description %>
+    </p>
+  </div>
+  
+  <div class="recipe-show-btn">
+    <div>
+      <% if recipe.user_id == current_user.id %>
+        <%= link_to "Generate shopping list", shopping_list_index_path %>
+      <% end %>
+    </div>
+    <div><%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe) %></div>
+  </div>
+
+  <table class= "ingredients-table">
     <tr>
       <th>Food</th>
       <th>Quantity</th>
@@ -43,18 +49,14 @@
         <td><%= recipe_food.quantity %></td>
         <td><%= recipe_food.food.price * recipe_food.quantity %></td>
         <td>
-          <% if can? :destroy, recipe %>
-            <%= link_to "Modify", edit_recipe_recipe_food_path(recipe, recipe_food) %>
-            <%= button_to "Remove", recipe_recipe_food_path(recipe, recipe_food), method: :delete %>
-          <% end %>
+          <div class= "ingredient-btns">
+            <% if can? :destroy, recipe %>
+              <%= link_to "Modify", edit_recipe_recipe_food_path(recipe, recipe_food) %>
+              <%= button_to "Remove", recipe_recipe_food_path(recipe, recipe_food), method: :delete %>
+            <% end %>
+          </div>
         </td>
       </tr>
     <% end %>
   </table>
-
-  <%# <p> %>
-    <%# <strong>User:</strong> %>
-    <%#= recipe.user_id %>
-  <%# </p> %>
-
 </div>
