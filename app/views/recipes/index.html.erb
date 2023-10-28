@@ -5,26 +5,25 @@
 <div id="recipes">
   <% @recipes.each do |recipe| %>
     <%#= render recipe %>
-    <% if recipe.public == true || recipe.user_id == current_user.id%>
+    <div class="recipe">
+      <div class="recipe-name-container">
+        <% if recipe.public == true || recipe.user_id == current_user.id%>
+          <p>
+            <%= link_to recipe.name, recipe %>
+          </p>
+        <% else %>
+          <p>
+            <%= recipe.name %>
+          </p>
+        <% end %>
+        <% if recipe.user_id == current_user.id %>
+            <%= button_to "Remove", recipe, method: :delete %>
+        <% end %>
+      </div>
       <p>
-        <%= link_to recipe.name, recipe %>
+        <%= recipe.description %>
       </p>
-    <% else %>
-      <p>
-        <%= recipe.name %>
-      </p>
-    <% end %>
-
-    <p>
-      <%= recipe.description %>
-    </p>
-
-    <% if recipe.user_id == current_user.id %>
-      <%= button_to "Remove", recipe, method: :delete %>
-    <% end %>
-    <%# <p> %>
-      <%#= link_to "Show this recipe", recipe %>
-    <%# </p> %>
+    </div>
   <% end %>
 </div>
 

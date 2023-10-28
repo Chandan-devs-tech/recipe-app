@@ -1,8 +1,9 @@
-<section>
+<section class="public-page">
     <h1>Public Recipes</h1>
-    <div>
+    <div class="public-container">
         <% @public_recipes.each do |public_recipe| %>
-            <div>
+            <div class="public-item">
+                <div class="public-name-container">
                 <% if public_recipe.public == true || public_recipe.user_id == current_user.id%>
                     <p>
                         <%= link_to public_recipe.name, public_recipe %>
@@ -13,14 +14,15 @@
                     </p>
                 <% end %>
                 <p>By: <%= public_recipe.user.name %></p>
-            </div>
-            <div>
-                <p>Total food items: <%= public_recipe.recipe_foods.count %> </p>
-                <% @total_price = 0 %>
-                <% public_recipe.recipe_foods.each do |recipe_food| %>
-                   <% @total_price += recipe_food.food.price * recipe_food.quantity %>
-                <% end %>
-                <p>Total price: <%= @total_price %></p>
+                </div>
+                <div class="public-price-container">
+                    <p>Total food items: <%= public_recipe.recipe_foods.count %> </p>
+                    <% @total_price = 0 %>
+                    <% public_recipe.recipe_foods.each do |recipe_food| %>
+                    <% @total_price += recipe_food.food.price * recipe_food.quantity %>
+                    <% end %>
+                    <p>Total price: <%= @total_price %></p>
+                </div>
             </div>
         <% end %>
     </div>
