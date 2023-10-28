@@ -1,0 +1,11 @@
+<% if current_user %>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-items"><%= link_to "Foods", root_path, class:"nav-link" %></li>
+            <li class="nav-items"><%= link_to "Recipes", recipes_path, class:"nav-link" %></li>
+            <li class="nav-items"><%= link_to "Public Recipes", public_recipes_path, class:"nav-link" %></li>
+            <li class="nav-items"><%= link_to "Shopping List", shopping_list_index_path, class:"nav-link" %></li>
+            <li class="nav-items"><%= button_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link"%></li>
+        </ul>
+    </nav>
+<% end %>
