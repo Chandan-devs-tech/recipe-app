@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://media.giphy.com/media/J2aPjxjibS9a11X9bp/giphy.gif" alt="Animation" width="150">
+</p>
+
 <a name="readme-top"></a>
 
 <div align="center">
